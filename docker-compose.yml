@@ -1,0 +1,18 @@
+version: "1"
+
+services:
+  gateway:
+    environment:
+      - PYTHONUNBUFFERED=0
+    build: .
+    volumes:
+      - ./:/code
+    working_dir: /code/app
+    command: uvicorn main:app --host 0.0.0.0 --reload --port 80
+    ports:
+      - "0.0.0.0:80:80"
+    networks:
+      - microservice-network
+networks:
+  microservice-network:
+    external: true
