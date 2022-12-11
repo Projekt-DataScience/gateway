@@ -1,4 +1,4 @@
-version: "1"
+version: "3.8"
 
 services:
   gateway:
@@ -7,40 +7,11 @@ services:
     build: .
     ports:
       - "0.0.0.0:80:80"
-    networks:
-      - microservice-network
     depends_on:
       audit:
         condition: service_started
 
   audit:
     image: ghcr.io/projekt-datascience/backend-audit:release
-    depends_on:
-      db:
-        condition: service_healthy
-    ports:
-      - 8081:8000
-    networks:
-      - microservice-network
     env_file:
       - .env
-
-  db:
-    image: postgres:latest
-    restart: always
-    environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
-      PGPORT: ${DB_PORT}
-    ports:
-      - ${DB_PORT}:${DB_PORT}
-    networks:
-      - microservice-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-networks:
-  microservice-network:
