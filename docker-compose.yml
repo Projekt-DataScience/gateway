@@ -14,4 +14,9 @@ services:
   audit:
     image: ghcr.io/projekt-datascience/backend-audit:release
     env_file:
-      - .env
+      - env
+
+  user-management:
+    image: ghcr.io/projekt-datascience/backend-user-management:release
+    env_file:
+      - env
