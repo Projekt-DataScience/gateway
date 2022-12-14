@@ -20,3 +20,8 @@ services:
     image: ghcr.io/projekt-datascience/backend-user-management:release
     env_file:
       - env
+
+  tasks:
+    image: ghcr.io/projekt-datascience/backend-tasks:release
+    env_file:
+      - env
