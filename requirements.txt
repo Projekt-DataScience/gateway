@@ -1,0 +1,4 @@
+# Requirements only needed for testing
+
+requests
+pytest

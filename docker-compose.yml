@@ -8,8 +8,9 @@ services:
     ports:
       - "0.0.0.0:80:80"
     depends_on:
-      audit:
-        condition: service_started
+      - audit
+      - user-management
+      - tasks
 
   audit:
     image: ghcr.io/projekt-datascience/backend-audit:release
