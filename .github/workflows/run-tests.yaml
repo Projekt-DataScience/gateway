@@ -24,6 +24,9 @@ jobs:
       - name: Installing dependencies
         run: pip install -r requirements.txt
 
+      - name: Wait until containers fully booted
+        run: sleep 3
+
       - name: Running tests
         run: pytest tests
 
