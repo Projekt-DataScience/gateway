@@ -14,3 +14,18 @@ Für eine einfache Entwicklung werden die anderen Services benötigt, dafür exi
 ```
 docker-compose up
 ```
+
+# Ausführen der Tests
+Zum Ausführen der Tests wird pytest verwendet:
+
+```
+pytest tests
+```
+
+Anforderungen installlieren:
+
+```
+python -m virtualenv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
