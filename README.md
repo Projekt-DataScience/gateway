@@ -16,6 +16,12 @@ docker-compose up
 ```
 
 # Ausführen der Tests
+Damit die Tests funktioniert muss zuvor die Testumgebung mittels docker-compose deployed sein:
+```
+docker-compose up
+```
+
+
 Zum Ausführen der Tests wird pytest verwendet:
 
 ```
